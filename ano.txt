@@ -1,0 +1,11 @@
+curl --location 'http://192.168.2.12:5000/mission' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username":"cucusugi3",
+    "password":"000000",
+    "profile_id":"578876",
+    "boss_num":"1",
+    "mission_id":"60",
+    "clanid":"3192",
+    "clanidd":"3276"
+}'

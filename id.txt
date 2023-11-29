@@ -1,0 +1,99 @@
+{
+    "username":"cucusugi3",
+    "password":"000000",
+    "profile_id":"578876",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"cucusugi4",
+    "password":"000000",
+    "profile_id":"578999",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"cucusugi5",
+    "password":"000000",
+    "profile_id":"579000",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"cucusugi6",
+    "password":"000000",
+    "profile_id":"580297",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"dummyclan1",
+    "password":"dum12345",
+    "profile_id":"581173",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"dummyclan2",
+    "password":"dum12345",
+    "profile_id":"581174",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"dummyclan3",
+    "password":"dum12345",
+    "profile_id":"581179",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"dummyclan4",
+    "password":"dum12345",
+    "profile_id":"581180",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"dummyclan5",
+    "password":"dum12345",
+    "profile_id":"581181",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+},
+
+{
+    "username":"deepsea100",
+    "password":"ilham2601",
+    "profile_id":"578749",
+    //"boss_num":"7"
+    //"mission_id":"30"
+    "clanid":"3192",
+    "clanidd":"3276"
+}
