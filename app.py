@@ -12,19 +12,6 @@ import os
 import sys
 import jsonpickle
 
-#{
-#    "username":"dummyclan1",
-#    "password":"dum12345",
-#    "profile_id":"581173",
-#    "boss_num":"7"
-#    "mission_id":"30"
-#    "clanid":"3192",
-#    "clanidd":"3276"
-#}
-
-
-
-
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
