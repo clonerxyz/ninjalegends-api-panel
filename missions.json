@@ -448,6 +448,94 @@
                 "ene_31"
             ],
             "msn_bg": "mission_08",
+            "msn_id": "msn_22",
+            "msn_grade": "c",
+            "msn_name": "Troublesome Water Ninja",
+            "msn_level": "20",
+            "msn_description": "The young Water Ninja always disturb the ships on the port. Fight against them!",
+            "msn_premium": false,
+            "msn_daily": false,
+            "msn_campaign": false,
+            "msn_reward_tp": 0,
+            "msn_reward_xp": 660,
+            "msn_reward_gold": 315,
+            "msn_dialog": [
+                "Genzu-Left: Some young Water Ninjas always disturb the business ships in the nearby small village. They came to us for help. Teach the naughty Water Ninja a lesson!"
+            ]
+        }
+		,
+		{
+            "msn_enemy": [
+                "ene_29",
+                "ene_31"
+            ],
+            "msn_bg": "mission_08",
+            "msn_id": "msn_30",
+            "msn_grade": "c",
+            "msn_name": "Troublesome Water Ninja",
+            "msn_level": "20",
+            "msn_description": "The young Water Ninja always disturb the ships on the port. Fight against them!",
+            "msn_premium": false,
+            "msn_daily": false,
+            "msn_campaign": false,
+            "msn_reward_tp": 0,
+            "msn_reward_xp": 660,
+            "msn_reward_gold": 315,
+            "msn_dialog": [
+                "Genzu-Left: Some young Water Ninjas always disturb the business ships in the nearby small village. They came to us for help. Teach the naughty Water Ninja a lesson!"
+            ]
+        }
+		,
+		{
+            "msn_enemy": [
+                "ene_29",
+                "ene_31"
+            ],
+            "msn_bg": "mission_08",
+            "msn_id": "msn_40",
+            "msn_grade": "c",
+            "msn_name": "Troublesome Water Ninja",
+            "msn_level": "20",
+            "msn_description": "The young Water Ninja always disturb the ships on the port. Fight against them!",
+            "msn_premium": false,
+            "msn_daily": false,
+            "msn_campaign": false,
+            "msn_reward_tp": 0,
+            "msn_reward_xp": 660,
+            "msn_reward_gold": 315,
+            "msn_dialog": [
+                "Genzu-Left: Some young Water Ninjas always disturb the business ships in the nearby small village. They came to us for help. Teach the naughty Water Ninja a lesson!"
+            ]
+        }
+		,
+		{
+            "msn_enemy": [
+                "ene_29",
+                "ene_31"
+            ],
+            "msn_bg": "mission_08",
+            "msn_id": "msn_50",
+            "msn_grade": "c",
+            "msn_name": "Troublesome Water Ninja",
+            "msn_level": "20",
+            "msn_description": "The young Water Ninja always disturb the ships on the port. Fight against them!",
+            "msn_premium": false,
+            "msn_daily": false,
+            "msn_campaign": false,
+            "msn_reward_tp": 0,
+            "msn_reward_xp": 660,
+            "msn_reward_gold": 315,
+            "msn_dialog": [
+                "Genzu-Left: Some young Water Ninjas always disturb the business ships in the nearby small village. They came to us for help. Teach the naughty Water Ninja a lesson!"
+            ]
+        }
+		,
+		{
+            "msn_enemy": [
+                "ene_29",
+                "ene_31"
+            ],
+            "msn_bg": "mission_08",
             "msn_id": "msn_60",
             "msn_grade": "c",
             "msn_name": "Troublesome Water Ninja",
