@@ -121,6 +121,26 @@ def hunting_house():
     results = r_msg.bodies[0][1].body
     return results
 
+@app.route('/hdata', methods=['POST'])
+@cross_origin()
+def hdata():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    eneid = "1"
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="HalloweenEvent2023.getData", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+
+
+
 @app.route('/hallowen', methods=['POST'])
 @cross_origin()
 def hallowen():
@@ -128,33 +148,34 @@ def hallowen():
     if type(ninja_legends) == Response:
         return ninja_legends
     client, character, enemy, mission = ninja_legends.values()
-    agi = "10"
+    agi = "89"
     data = request.json
-    ene = "ene572"
+    ene = "ene_572"
     eneid = "1"
+    hp = "26640"
+    hp2 = "9999999"
     uid = data['profile_id']
     boss_num = int(data['boss_num'])
-    _loc6_ = "id:ene572|hp:6660|agility:30";
-    h2 = hashlib.sha256(f"'ene_572'{_loc6_}{10}".encode())
-    # start hunting house
+    _loc6_ = "id:ene_572|hp:26640|agility:114";
+    #h2 = hashlib.sha256(f"{ene}{_loc6_}{89}".encode())
+    h2 = hashlib.sha256(f"{ene}{_loc6_}{agi}".encode())
     r_msg = client.send_remoting_amf(
         target="HalloweenEvent2023.startEvent", 
         body=[[f"{uid}", f"{eneid}", f"{ene}", _loc6_, f"{agi}", h2.hexdigest(), character.session_key]]
     )
     
     battle_code = r_msg.bodies[0][1].body
-    return jsonpickle.encode(battle_code)
-    h3 = hashlib.sha256(f"'ene_572'{uid}{battle_code}'6660'".encode())
-    r_msg = client.send_remoting_amf(
+
+    h3 = hashlib.sha256(f"{eneid}{uid}{battle_code}{hp}".encode())
+    r_msg2 = client.send_remoting_amf(
         target="HalloweenEvent2023.finishEvent", 
         #body=[[Character.char_id,Character.christmas_boss_num,Character.battle_code,_loc2_,this.getTotalDamageDoneToEnemies(),Character.sessionkey]]
-        body=[[f"{uid}", "ene_572", battle_code, h3.hexdigest(),"6660", character.session_key]]
+        body=[[f"{uid}", f"{eneid}", battle_code, h3.hexdigest(),f"{hp}", character.session_key]]
     )
-    results = r_msg.bodies[0][1].body
-    #print(r_msg)
-    return jsonpickle.encode(results)
-    #return jsonpickle.encode(r_msg.bodies[0][1].body)
-    #print(h2.hexdigest())
+    results = r_msg2.bodies[0][1].body
+
+    return results
+
     
 @app.route('/eudemon', methods=['POST'])
 @cross_origin()
@@ -259,8 +280,190 @@ def stam():
     results = r_msg.bodies[0][1].body
     return results
 
+@app.route('/chudata', methods=['POST'])
+@cross_origin()
+def chudata():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="ChuninExam.getData", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+    
+@app.route('/chunin', methods=['POST'])
+@cross_origin()
+def chunin():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="ChuninExam.promoteToChunin", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+   
+@app.route('/chuninexam', methods=['POST'])
+@cross_origin()
+def chuninexam():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    stg = data['stg']
+    total_ene_hp = "100"
+    r_msg = client.send_remoting_amf(
+        target="ChuninExam.startStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    #return battle_code
+    r_msg = client.send_remoting_amf(
+        target="ChuninExam.finishStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}","2","9","2"]]
+    )
 
+    results = r_msg.bodies[0][1].body
+    #ress = jsonpickle.encode(results)
+    return results
 
+@app.route('/jodata', methods=['POST'])
+@cross_origin()
+def jodata():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="JouninExam.getData", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+    
+@app.route('/jounin', methods=['POST'])
+@cross_origin()
+def jounin():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="JouninExam.promoteToJounin", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+   
+@app.route('/jouninexam', methods=['POST'])
+@cross_origin()
+def jouninexam():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    stg = data['stg']
+    total_ene_hp = "100"
+    r_msg = client.send_remoting_amf(
+        target="JouninExam.startStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    #return battle_code
+    r_msg = client.send_remoting_amf(
+        target="JouninExam.finishStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}","2","9","2"]]
+    )
+
+    results = r_msg.bodies[0][1].body
+    #ress = jsonpickle.encode(results)
+    return results
+    
+@app.route('/ssjodata', methods=['POST'])
+@cross_origin()
+def ssjodata():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="SpecialJouninExam.getData", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+    
+@app.route('/ssjounin', methods=['POST'])
+@cross_origin()
+def ssjounin():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="SpecialJouninExam.promoteToSpecialJounin", 
+        body=[[character.session_key,f"{uid}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    return battle_code
+   
+@app.route('/ssjoexam', methods=['POST'])
+@cross_origin()
+def SpecialJouninExam():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    uid = data['profile_id']
+    stg = data['stg']
+    #stg2 = data['stg2']
+    total_ene_hp = "100"
+    r_msg = client.send_remoting_amf(
+        target="SpecialJouninExam.startStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}"]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
+    #return battle_code
+    r_msg = client.send_remoting_amf(
+        target="SpecialJouninExam.finishStage", 
+        body=[[character.session_key,f"{uid}",f"{stg}","2","9","2"]]
+    )
+
+    results = r_msg.bodies[0][1].body
+    #ress = jsonpickle.encode(results)
+    return results
+    
 @app.route('/debug', methods=['GET'])
 @cross_origin()
 def debug():
