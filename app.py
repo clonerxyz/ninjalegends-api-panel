@@ -246,7 +246,41 @@ def xmas3():
     results = r_msg2.bodies[0][1].body
 
     return results
+    
+@app.route('/xmas4', methods=['POST'])
+@cross_origin()
+def xmas4():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    agi = "89"
+    data = request.json
+    ene = "ene_268"
+    eneid = "3"
+    hp = "26640"
+    hp2 = "9999999"
+    uid = data['profile_id']
+    boss_num = int(data['boss_num'])
+    _loc6_ = "id:ene_566|hp:26640|agility:114";
+    #h2 = hashlib.sha256(f"{ene}{_loc6_}{89}".encode())
+    h2 = hashlib.sha256(f"{ene}{_loc6_}{agi}".encode())
+    r_msg = client.send_remoting_amf(
+        target="Xmas2023.executeService", 
+        body=[["startFight",[f"{uid}",character.session_key, f"{eneid}", f"{ene}", _loc6_, f"{agi}", h2.hexdigest()]]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body
 
+    h3 = hashlib.sha256(f"{eneid}{uid}{battle_code}{hp}".encode())
+    r_msg2 = client.send_remoting_amf(
+        target="Xmas2023.finishEvent", 
+        #body=[[Character.char_id,Character.christmas_boss_num,Character.battle_code,_loc2_,this.getTotalDamageDoneToEnemies(),Character.sessionkey]]
+        body=[[f"{uid}", f"{eneid}", battle_code, h3.hexdigest(),f"{hp}", character.session_key]]
+    )
+    results = r_msg2.bodies[0][1].body
+
+    return results
     
 @app.route('/eudemon', methods=['POST'])
 @cross_origin()
