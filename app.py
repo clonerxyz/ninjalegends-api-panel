@@ -581,6 +581,10 @@ def pvp():
     data = request.json
     hp = int('4000')
     uid = data['profile_id']
+    r_msg3 = client.send_remoting_amf(
+        target="ArenaService.executeService", 
+        body=[["getData",[f"{uid}",character.session_key]]]
+    )
     r_msg = client.send_remoting_amf(
         target="ArenaService.executeService", 
         body=[["startBattle",[f"{uid}",character.session_key]]]
