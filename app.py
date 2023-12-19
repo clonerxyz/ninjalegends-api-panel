@@ -570,7 +570,34 @@ def SpecialJouninExam():
     results = r_msg.bodies[0][1].body
     #ress = jsonpickle.encode(results)
     return results
+
+@app.route('/pvp', methods=['POST'])
+@cross_origin()
+def pvp():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    hp = int('4000')
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="ArenaService.executeService", 
+        body=[["startBattle",[f"{uid}",character.session_key]]]
+    )
     
+    battle_code = r_msg.bodies[0][1].body['battle_code']
+    #h3 = hashlib.sha256(f"{battle_code},{hp}".encode()).hexdigest()
+    h3 = hashlib.sha256(f"{battle_code},{hp}".encode())
+    r_msg2 = client.send_remoting_amf(
+        target="ArenaService.executeService", 
+        
+        body=[["endBattle",[f"{uid}", character.session_key , battle_code , hp, h3.hexdigest()]]]
+    )
+    results = r_msg2.bodies[0][1].body
+
+    return results
+   
 @app.route('/debug', methods=['GET'])
 @cross_origin()
 def debug():
