@@ -27,3 +27,4 @@ class Client:
         bin_msg = remoting.encode(ev)
         r = self.__client.post(self.__URL, data=bin_msg.getvalue())
         return remoting.decode(r.content)
+        __client.close()
