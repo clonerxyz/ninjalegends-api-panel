@@ -140,7 +140,30 @@ def xdata():
     battle_code = r_msg.bodies[0][1].body
     return battle_code
 
+@app.route('/pcrew', methods=['POST'])
+@cross_origin()
+def pcrew():
+    ninja_legends = init_nl()
+    if type(ninja_legends) == Response:
+        return ninja_legends
+    client, character, enemy, mission = ninja_legends.values()
+    data = request.json
+    eneid = "1"
+    uid = data['profile_id']
+    r_msg = client.send_remoting_amf(
+        target="CrewService.executeService", 
+        body=[["startBattle",[f"{uid}",character.session_key,4,[]]]]
+    )
+    
+    battle_code = r_msg.bodies[0][1].body['battle_code']
+    r_msg2 = client.send_remoting_amf(
+        target="CrewService.executeService", 
+        body=[["finishBattle",[f"{uid}",character.session_key,battle_code,29796]]]
+    )
+    
+    results = r_msg2.bodies[0][1].body
 
+    return results
 
 @app.route('/xmas', methods=['POST'])
 @cross_origin()
